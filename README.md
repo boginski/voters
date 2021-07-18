@@ -1,5 +1,27 @@
 # voters
-Текущая версия: 0.1
+Текущая версия: 0.2
+
+Запуск проекта:
+К сожалению, пока нет времени сделать честный config, поэтому план запуска:
+1. Создайте базу данных: CREATE DATABASE AVITO_INTERN; и подключитесь к ней.
+2. Создайте необходимые таблицы:
+  CREATE TABLE polls
+(
+	id_poll serial,
+	name_poll varchar(100) primary key
+);
+
+CREATE TABLE counter
+(
+	id_poll integer,
+	id_choice smallint,
+	name_choice varchar(200),
+	voters integer,
+	primary key(id_poll, id_choice)
+);
+3. Поправьте данные для подключения в файле "storage.go" – строка 43. Не забудьте сохранить изменения.
+4. Запустите "go build" в папке проекта.
+6. Запустите файл "voting".
 
 План работ:
 1. Установка и настройка PostgreSQL. Создание базы данных с необходимыми таблицами.
